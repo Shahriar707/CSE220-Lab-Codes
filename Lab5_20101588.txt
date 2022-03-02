@@ -1,0 +1,165 @@
+Name      : Shahriar Ahmed 
+Section   : 04
+ID        : 20101588 
+Topic     : Recursion   
+Assignment: Lab5 - Recursion   
+
+
+###Task-1:
+
+
+def factorial(x):
+    if x == 0:
+        return 1
+    elif x == 1:
+        return 1
+    else:
+        return x*factorial(x-1)
+
+x = int(input("Give the value: "))
+
+print(factorial(x))
+
+
+
+###Task-2:
+
+
+def fibonacci(n):
+    if n == 0:
+        return 0
+    elif n == 1:
+        return 0
+    elif n == 2:
+        return 1
+    else:
+        return fibonacci(n-1) + fibonacci(n-2)
+
+n = int(input("Enter the nth value: "))
+
+print(fibonacci(n))
+
+
+
+###Task-3:
+
+
+def print_array(arr, size):
+    if size == 0:
+        return
+    elif size == 1:
+        return arr
+    else:
+        return print_array(arr, size-1)
+
+arr = input("Enter the array: ")
+size = int(input("Enter the size of the array: "))
+
+print(print_array(arr, size))
+
+
+
+###Task-4:
+
+
+def decimal_binary(number):
+    if number == 0:
+        return
+    else:
+        decimal_binary(int(number / 2))
+        print(number%2, end="")
+
+number = int(input("Enter the decimal value: "))
+
+decimal_binary(number)
+
+
+
+###Task-5:
+
+
+def exponent(x, y):
+    if y == 0:
+        return 1
+    else:
+        s = exponent(x, y-1)
+        return s*x
+
+x = int(input("Give the value: "))
+y = int(input("Give the exponent: "))
+
+print(exponent(x, y))
+
+
+
+###Task-6:
+
+
+class Node:
+    def __init__(self, e, n=None):
+        self.element = e
+        self.next = n
+
+
+class Linked_List():
+    def __init__(self):
+        new_Node4 = Node(40, None)
+        new_Node3 = Node(30, new_Node4)
+        new_Node2 = Node(20, new_Node3)
+        new_Node1 = Node(10, new_Node2)
+        self.head = new_Node1
+
+    def show_list(self, head):
+        self.NewHead=head
+        while self.NewHead == None:
+            print(self.NewHead.element, "-->")
+            self.NewHead = self.NewHead.next
+
+    def sum_recursive(self, head):
+        self.NewHead=head
+        if self.NewHead == 0:
+            return 0
+        else:
+            return self.NewHead.element + self.sum_recursive(self.NewHead.next)
+
+a=Linked_List()
+print(a.show_list(10))
+print(a.sum_recursive(10))
+
+
+
+###Task-7: 
+
+
+class Node:
+    def __init__(self, e, n=None):
+        self.element = e
+        self.next = n
+
+
+class Linked_List():
+    def __init__(self):
+        new_Node4 = Node(40, None)
+        new_Node3 = Node(30, new_Node4)
+        new_Node2 = Node(20, new_Node3)
+        new_Node1 = Node(10, new_Node2)
+        self.head = new_Node1
+
+    def show_list(self, head):
+        self.NewHead=head
+        while self.NewHead == None:
+            print(self.NewHead.element, "-->")
+            self.NewHead = self.NewHead.next
+
+    def reverse_recursive(self, head):
+        self.NewHead=head
+        if self.NewHead == 0:
+            return 
+        else:
+            self.reverse_recursive(self.head.next)
+            print(self.head.element + " ")
+
+a=Linked_List()
+print(a.show_list(10))
+print(a.reverse_recursive(10))
+

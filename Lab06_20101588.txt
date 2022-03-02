@@ -1,0 +1,288 @@
+Name      : Shahriar Ahmed 
+Section   : 04
+ID        : 20101588 
+Topic     : Searching & Sorting    
+Assignment: Lab6 - Searching & Sorting 
+
+
+
+###Task-1:
+
+
+def swap_min(a, i, j):
+    temp = a[i]
+    a[i] = a[j]
+    a[j] = temp
+
+def selection_sort(a, i, n):
+    if len(a) == 0:
+        return a
+    else:
+        minIndex = i
+        for j in range(i+1, n):
+            if a[j] < a[minIndex]:
+                minIndex = j
+
+        swap_min(a, minIndex, i)
+
+        if i+1 < n:
+            selection_sort(a, i+1, n)
+
+a = [30,20,15,23,-2,56,-5]
+selection_sort(a, 0, len(a))
+print(a)
+
+
+
+###Task-2:
+
+
+def insertion_sort(a, i, n):
+    if len(a) == 0:
+        return a
+
+    temp = a[i]
+    j = i - 1
+
+    while j >= 0 and a[j] > temp:
+        a[j+1] = a[j]
+        j = j-1
+    a[j+1] = temp
+
+    if i+1 <= n:
+        insertion_sort(a, i+1, n)
+
+a = [30,20,15,23,-2,56,-5]
+insertion_sort(a, 1, len(a)-1)
+print(a)
+
+
+
+###Task-3:
+
+
+class Node:
+    def __init__(self, e, n=None):
+        self.element = e
+        self.next = n
+
+class MyList:
+
+    def __init__(self, a):
+        self.head = None
+        tail = None
+        for i in a:
+            n = Node(i)
+            if self.head is None:
+                self.head = n
+                tail = n
+            else:
+                tail.next = n
+                tail = n
+
+    def bubble_sort(self):
+        finish = None
+        while finish != self.head.next:
+            x = self.head
+            while x.next != finish:
+                y = x.next
+                if x.element > y.element:
+                    x.element, y.element = y.element, x.element
+                x = x.next
+            finish = x
+
+        n = self.head
+        while n is not None:
+            print(n.element, end=" ")
+            n = n.next
+
+
+list1 = MyList([1,2,5,3,8])
+list1.bubble_sort()
+print("\n")
+list2 = MyList([30,20,15,23,-2,56,-5])
+list2.bubble_sort()
+
+
+
+###Task-4:
+
+
+class Node:
+    def __init__(self, e, n=None):
+        self.element = e
+        self.next = n
+
+class MyList:
+
+    def __init__(self, a):
+        self.head = None
+        tail = None
+        for i in a:
+            n = Node(i)
+            if self.head is None:
+                self.head = n
+                tail = n
+            else:
+                tail.next = n
+                tail = n
+
+    def selection_sort(self):
+        n = self.head
+        while n is not None:
+            minimum = n
+            x = n.next
+            while x is not None:
+                if minimum.element > x.element:
+                    minimum = x
+                x = x.next
+
+            y = n.element
+            n.element = minimum.element
+            minimum.element = y
+            n = n.next
+
+        n = self.head
+        while n is not None:
+            print(n.element, end=" ")
+            n = n.next
+
+a = MyList([30,20,15,23,-2,56,-5])
+a.selection_sort()
+
+
+
+###Task-5:
+
+
+class Node:
+    def __init__(self, e):
+        self.element = e
+        self.next = None
+        self.previous = None
+
+def addNode(element):
+    newElement = Node(0)
+    newElement.element = element
+    newElement.previous = None
+    newElement.next = None
+    return newElement
+
+def sorted_insert(head, newElement):
+    current = None
+
+    if head == None:
+        head = newElement
+    elif head.element >= newElement.element:
+        newElement.next = head
+        newElement.next.previous = newElement
+        head = newElement
+    else:
+        current = head
+        while current.next is not None and current.next.element < newElement.element:
+            current = current.next
+        newElement.next = current.next
+
+        if current.next == newElement:
+            newElement.next.previous = newElement
+        current.next = newElement
+        newElement.previous = current
+
+    return head
+
+def insertion_sort(head):
+    sorted = None
+    current = head
+    while current is not None:
+        next = current.next
+        current.previous = None
+        current.next = None
+        sorted = sorted_insert(sorted, current)
+        current = next
+    head = sorted
+
+    return head
+
+def printList(head):
+    while head is not None:
+        print(head.element, end=" ")
+        head = head.next
+
+def push(head, new_element):
+    new_node = Node(0)
+    new_node.element = new_element
+    new_node.next = head
+    new_node.previous = None
+
+    if head is not None:
+        head.previous = new_node
+    head = new_node
+
+    return head
+
+head = None
+head = push(head, 7)
+head = push(head, 1)
+head = push(head, 10)
+head = push(head, 4)
+head = push(head, 5)
+head = push(head, 2)
+head = push(head, 30)
+print("The original Doubly Linked List: ")
+printList(head)
+head = insertion_sort(head)
+print("\nThe sorted Doubly Linked List: ")
+printList(head)
+
+
+
+###Task-6:
+
+
+def binarySearch(a, left, right, value):
+    if left > right:
+        return -1
+
+    middle = (left + right) // 2
+
+    if value == a[middle]:
+        return middle
+    elif value > a[middle]:
+        return binarySearch(a, middle+1, right, value)
+    else:
+        return binarySearch(a, left, middle-1, value)
+
+a = [-5,-2,15,20,23,30,56]
+value = 20
+
+(left, right) = (0, len(a)-1)
+position = binarySearch(a, left, right, value)
+
+if position != -1:
+    print("The value is found at Index - ", position)
+else:
+    print("The value is not found at Index")
+
+
+
+###Task-7:
+   
+
+a = list()
+
+def fibonacci_memoization(n):
+    if a[n] > 0:
+        return a[n]
+    if n == 0 or n== 1:
+        return 1
+    else:
+        return a[n].append(fibonacci_memoization(n-1)+fibonacci_memoization(n-1))
+
+def calculation():
+    a.insert(0,1)
+    a.insert(1,1)
+    for i in range(2, 100):
+        a.insert(i, a[i-1]+a[i-2])
+
+calculation()
+print(fibonacci_memoization(45))

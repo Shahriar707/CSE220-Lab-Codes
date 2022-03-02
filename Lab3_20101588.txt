@@ -1,0 +1,325 @@
+Name      : Shahriar Ahmed 
+Section   : 04
+ID        : 20101588 
+Topic     : Linked List 
+Assignment: Lab3 - Dummy Headed Doubly Circular Linked List 
+
+
+
+
+Task-1:
+
+(a).
+
+
+class Node:
+    def __init__(self, e, n=None, p=None):
+        self.element = e
+        self.next = n
+        self.previous = p
+
+
+(b). 
+
+
+class Node:
+    def __init__(self, e, n=None, p=None):
+        self.element = e
+        self.next = n
+        self.previous = p
+
+class DoublyList:
+    def __init__(self, a):
+        self.head = Node(None)
+        self.head.next = self.head
+        self.head.previous = self.head
+        self.tail = None 
+
+        x = self.head
+        for i in a:
+            newNode = Node(i)
+            newNode.previous = x
+            x.next = newNode
+        self.head.previous = x
+        x.next = self.head
+
+list1 = DoublyList([1,2,3,4])
+
+
+
+
+Task-2:
+
+
+1.
+
+
+class Node:
+    def __init__(self, e, n=None, p=None):
+        self.element = e
+        self.next = n
+        self.previous = p
+
+class DoublyList:
+    def __init__(self, a):
+        self.head = Node(None)
+        self.head.next = self.head
+        self.head.previous = self.head
+        self.tail = None 
+
+        x = self.head
+        for i in a:
+            newNode = Node(i)
+            newNode.previous = x
+            x.next = newNode
+        self.head.previous = x
+        x.next = self.head
+
+list1 = DoublyList([1,2,3,4])
+
+
+2.
+
+
+class Node:
+    def __init__(self, e, n=None, p=None):
+        self.element = e
+        self.next = n
+        self.previous = p
+
+class DoublyList:
+    def __init__(self, a):
+        self.head = Node(None)
+        self.head.next = self.head
+        self.head.previous = self.head
+        self.tail = None 
+
+        x = self.head
+        for i in a:
+            newNode = Node(i)
+            newNode.previous = x
+            x.next = newNode
+        self.head.previous = x
+        x.next = self.head
+
+    def showList(self):
+        if self.head == None:
+            print("Sorry! This is an empty list; can't be shown")
+        else:
+            #forward iteration
+            n = self.head.next
+            while n is not self.head:
+                print(n.element, end=" ")
+                n = n.next
+
+            #Backward Iteration
+            n = self.head.previous
+            while n is not self.head:
+                print(n.element, end=" ")
+                n = n.previous
+
+list1 = DoublyList([1,2,3,4])
+list1.showList()
+
+
+3.
+
+
+class Node:
+    def __init__(self, e, n=None, p=None):
+        self.element = e
+        self.next = n
+        self.previous = p
+
+class DoublyList:
+    def __init__(self, a):
+        self.head = Node(None)
+        self.head.next = self.head
+        self.head.previous = self.head
+        self.tail = None 
+
+        x = self.head
+        for i in a:
+            newNode = Node(i)
+            newNode.previous = x
+            x.next = newNode
+        self.head.previous = x
+        x.next = self.head
+
+    def insert(self, newElement):
+        n = self.head.next
+        while n is not self.head:
+            if newElement == n.element:
+                print("This element already exists in the linked list....so can't insert this element")
+                break
+            n = n.next
+
+        if self.head is None:
+            node2 = Node(0)
+            node2.element = newElement
+            node2.next = node2
+            node2.previous = node2
+            self.head = node2
+            return
+        else:
+            x = self.head.previous
+            node2 = Node(0)
+            node2.element = newElement
+            self.head.previous = node2
+            node2.previous = x
+            x.next = node2
+
+        n = self.head.next
+        while n is not self.head:
+            print(n.element, end=" ")
+            n = n.next
+
+list1 = DoublyList([1,2,3,4])
+list1.insert(50)
+
+
+4.
+
+
+class Node:
+    def __init__(self, e, n=None, p=None):
+        self.element = e
+        self.next = n
+        self.previous = p
+
+class DoublyList:
+    def __init__(self, a):
+        self.head = Node(None)
+        self.head.next = self.head
+        self.head.previous = self.head
+        self.tail = None 
+
+        x = self.head
+        for i in a:
+            newNode = Node(i)
+            newNode.previous = x
+            x.next = newNode
+        self.head.previous = x
+        x.next = self.head
+
+    def insert(self, newElement, elem):
+        if elem < 0:
+            raise Exception("Invalid Index")
+
+        n = self.head.next
+        while n is not self.head:
+            if newElement == n.element:
+                print("This element already exists in the linked list....so can't insert this element")
+                break
+            n = n.next
+
+        n = self.head.next
+        x = self.head.next
+        while n is not self.head:
+            if int(n.element) == int(elem):
+                insertNode = Node(newElement)
+                insertNode.previous = x
+                x.next = insertNode
+                insertNode.next = n
+                n.previous = insertNode
+            x = n
+            n = n.next
+
+        n = self.head.next
+        while n is not self.head:
+            print(n.element)
+            n = n.next
+
+list1 = DoublyList([1,2,3,4])
+list1.insert(50,3)
+
+
+5.
+
+
+class Node:
+    def __init__(self, e, n=None, p=None):
+        self.element = e
+        self.next = n
+        self.previous = p
+
+class DoublyList:
+    def __init__(self, a):
+        self.head = Node(None)
+        self.head.next = self.head
+        self.head.previous = self.head
+        self.tail = None 
+
+        x = self.head
+        for i in a:
+            newNode = Node(i)
+            newNode.previous = x
+            x.next = newNode
+        self.head.previous = x
+        x.next = self.head
+
+    def remove(self, index):
+        if index==1:
+            self.tail.next = self.tail.next.next 
+            self.tail.next.previous = None
+        else:
+            count = 0 
+            n = self.tail.next 
+            while True:
+                count = count + 1 
+                if count == index-1:
+                    break 
+                n = n.next 
+            n.next = n.next.next 
+            n.next.next.prev = n 
+
+
+6.
+
+
+class Node:
+    def __init__(self, e, n=None, p=None):
+        self.element = e
+        self.next = n
+        self.previous = p
+
+class DoublyList:
+    def __init__(self, a):
+        self.head = Node(None)
+        self.head.next = self.head
+        self.head.previous = self.head
+        self.tail = None 
+
+        x = self.head
+        for i in a:
+            newNode = Node(i)
+            newNode.previous = x
+            x.next = newNode
+        self.head.previous = x
+        x.next = self.head
+
+    def remove(self, deletekey):
+        if self.tail.next.element == deletekey:
+            x = self.tail.next.element
+            self.tail.next = self.tail.next.next
+            self.tail.next.previous = None
+
+        elif self.tail.next == self.tail and self.tail.next.element == deletekey:
+            x = self.tail.next.element
+            self.tail = None
+
+        else:
+            n = self.tail.next
+            while n.next is not self.tail:
+                if n.next.element == deletekey:
+                    break 
+                n = n.next 
+                
+            if n.next == self.tail.next:
+                print("Sorry! the element doesn't exist in the linked list")
+            else:
+                x = n.next.element 
+                n.next = n.next.next 
+                n.next.prev = None 
+                if self.tail.element == deletekey:
+                    self.tail = n 

@@ -1,0 +1,701 @@
+Name      : Shahriar Ahmed 
+Section   : 04
+ID        : 20101588 
+Topic     : Linked List 
+Assignment: Lab2 - Linked List  
+
+
+
+
+Task-1:
+
+(a).
+
+class Node:
+
+    def __init__(self,e,n=None):
+        self.element = e
+        self.next = n
+
+list1 = Node([10,20,30,40,50],[0,1,2,3,4])
+
+(b).
+
+class MyList:
+
+    def __init__(self, a):
+
+        self.head = None
+        tail = None
+        for i in a:
+            n = Node(i)
+            if self.head is None:
+                self.head = n
+                tail = n
+            else:
+                tail.next = n
+                tail = n
+
+list2 = MyList([10,20,30,40,50])
+
+
+
+
+
+
+Task-2:
+
+
+1.
+ 
+(a)
+
+class Node:
+    def __init__(self, e, n=None):
+        self.element = e
+        self.next = n
+
+
+class MyList:
+
+    def __init__(self):
+        self.head = None
+
+list1 = MyList()
+
+
+(b)
+
+class Node:
+    def __init__(self, e, n=None):
+        self.element = e
+        self.next = n
+
+
+class Myst:
+
+    def __init__(self, a, head=None):
+        self.head = None
+        tail = None
+        for i in a:
+            n = Node(i)
+            if self.head is None:
+                self.head = n
+                tail = n
+            else:
+                tail.next = n
+                tail = n
+
+        return head
+
+list1 = Myst([10, 20, 30, 40, 50])
+
+
+(c)
+
+class Node:
+    def __init__(self, e, n=None):
+        self.element = e
+        self.next = n
+
+
+class MyList:
+
+    def __init__(self, a):
+        self.head = None
+        tail = None
+        for i in a:
+            n = Node(i)
+            if self.head is None:
+                self.head = n
+                tail = n
+            else:
+                tail.next = n
+                tail = n
+
+    def copyList(self,head):
+        copyHead = None
+        copyTail = None
+        n = self.head
+        while n is not None:
+            newNode = Node(n.element, None)
+            if copyHead == None:
+                copyHead = newNode
+                copyTail = newNode
+            else:
+                copyTail.next = newNode
+                copyTail = newNode
+
+        return head 
+
+list1 = MyList([10, 20, 30, 40, 50])
+
+
+2.
+
+
+class Node:
+    def __init__(self, e, n=None):
+        self.element = e
+        self.next = n
+
+class MyList:
+
+    def __init__(self, a):
+        self.head = None
+        tail = None
+        for i in a:
+            n = Node(i)
+            if self.head is None:
+                self.head = n
+                tail = n
+            else:
+                tail.next = n
+                tail = n
+
+    def showList(self):
+        if self.head == None:
+            print("This is an Empty List")
+        else:
+            n = self.head
+            while n is not None:
+                print(n.element, end=" ")
+                n = n.next
+
+list1 = MyList([])
+list2 = MyList([10,20,30,40,50])
+list1.showList()
+list2.showList() 
+
+
+3.
+
+
+class Node:
+    def __init__(self, e, n=None):
+        self.element = e
+        self.next = n
+
+class MyList:
+
+    def __init__(self, a):
+        self.head = None
+        tail = None
+        for i in a:
+            n = Node(i)
+            if self.head is None:
+                self.head = n
+                tail = n
+            else:
+                tail.next = n
+                tail = n
+
+    def isEmpty(self):
+        if self.head == None:
+            print("True")
+        else:
+            print("False")
+
+list1 = MyList([])
+list2 = MyList([10,20,30,40,50])
+list1.isEmpty()
+list2.isEmpty()
+
+
+4.
+
+
+class Node:
+    def __init__(self, e, n=None):
+        self.element = e
+        self.next = n
+
+class MyList:
+
+    def __init__(self, a):
+        self.head = None
+        tail = None
+        for i in a:
+            n = Node(i)
+            if self.head is None:
+                self.head = n
+                tail = n
+            else:
+                tail.next = n
+                tail = n
+
+    def clear(self):
+        n = self.head
+        while n.next is not None:
+            self.head = None
+            n.next = None
+
+list1 = MyList([11,22,33,44,55])
+list2 = MyList([10,20,30,40,50])
+list1.clear()
+list2.clear()
+
+
+5.
+
+
+class Node:
+    def __init__(self, e, n=None):
+        self.element = e
+        self.next = n
+
+class MyList:
+
+    def __init__(self, a):
+        self.head = None
+        tail = None
+        for i in a:
+            n = Node(i, None)
+            if self.head is None:
+                self.head = n
+                tail = n
+            else:
+                tail.next = n
+                tail = n
+
+    def insert(self, newElement):
+        n = self.head
+        while n is not None:
+            if newElement == n.element:
+                print("This element already exists in the linked list....so can't insert this element")
+                break
+            n = n.next
+        else:
+            new_Node = Node(newElement)
+            if self.head == None:
+                self.head = new_Node
+            else:
+                n = self.head
+                while n.next is not None:
+                    n = n.next
+                n.next = new_Node
+
+            n = self.head
+            while n is not None:
+                print(n.element)
+                n = n.next
+
+list1 = MyList([11, 22, 33, 44, 55])
+list2 = MyList([10, 20, 30, 40, 50])
+list1.insert(66)
+list2.insert(50)
+
+
+6.
+
+
+class Node:
+    def __init__(self, e, n=None):
+        self.element = e
+        self.next = n
+
+class MyList:
+
+    def __init__(self, a):
+        self.head = None
+        tail = None
+        for i in a:
+            n = Node(i, None)
+            if self.head is None:
+                self.head = n
+                tail = n
+            else:
+                tail.next = n
+                tail = n
+
+    def insert(self, size, newElement, index):
+        if (index<1 or index>size):
+            raise Exception("Invalid Index")
+
+        n = self.head
+        while n is not None:
+            if n.element == newElement:
+                print("This element already exists in the linked list....so can't insert this element")
+                break
+            n = n.next
+        else:
+            if index == 1:
+                newNode = Node(newElement)
+                newNode.next = self.head
+                self.head = newNode
+                return
+
+            n = self.head
+            count = 1
+            while count < index - 1 and n is not None:
+                n = n.next
+                count = count + 1
+
+            if n is None:
+                print("You can only insert elements till node", count)
+            else:
+                newNode = Node(newElement)
+                newNode.next = n.next
+                n.next = newNode
+
+            n = self.head
+            while n is not None:
+                print(n.element)
+                n = n.next
+
+
+list1 = MyList([11,22,33,44,55])
+list2 = MyList([10,20,30,40,50])
+list1.insert(5,66,4)
+list2.insert(5,60,5)
+list2.insert(5,40,2)
+
+
+7.
+
+
+class Node:
+    def __init__(self, e, n=None):
+        self.element = e
+        self.next = n
+
+class MyList:
+
+    def __init__(self, a):
+        self.head = None
+        tail = None
+        for i in a:
+            n = Node(i, None)
+            if self.head is None:
+                self.head = n
+                tail = n
+            else:
+                tail.next = n
+                tail = n
+
+    def remove(self, x):
+        if self.head.element == x:
+            self.head = self.head.next
+            return 
+        
+        n = self.head 
+        while n.next is not None:
+            if n.next.element == x:
+                break
+            n = n.next
+        n.next = n.next.next
+
+        n = self.head
+        while n is not None:
+            print(n.element)
+            n = n.next
+
+        return x 
+
+list1 = MyList([11,22,33,44,55])
+list2 = MyList([10,20,30,40,50])
+list1.remove(33)
+list2.remove(30)
+
+
+
+
+
+
+Task-3:
+
+
+1.
+
+
+class Node:
+    def __init__(self, e, n=None):
+        self.element = e
+        self.next = n
+
+class MyList:
+
+    def __init__(self, a):
+        self.head = None
+        tail = None
+        for i in a:
+            n = Node(i)
+            if self.head is None:
+                self.head = n
+                tail = n
+            else:
+                tail.next = n
+                tail = n
+
+        n = self.head
+        while n is not None:
+            if n.element % 2 == 0:
+                print(n.element, end=" ")
+            n = n.next
+
+    def finding_even(self):
+        n = self.head
+        a = []
+        while n is not None:
+            if n.element % 2 == 0:
+                a.append(n.element)
+            n = n.next
+        super().__init__()
+
+list1 = MyList([1,2,5,3,8])
+list1.finding_even()
+
+
+2.
+
+
+class Node:
+    def __init__(self, e, n=None):
+        self.element = e
+        self.next = n
+
+class MyList:
+
+    def __init__(self, a):
+        self.head = None
+        tail = None
+        for i in a:
+            n = Node(i)
+            if self.head is None:
+                self.head = n
+                tail = n
+            else:
+                tail.next = n
+                tail = n
+
+    def is_in_the_list(self, x):
+        n = self.head
+        count = 0
+        while n is not None:
+            if n.element == x:
+                count = count + 1
+                break
+            else:
+                n = n.next
+
+        if count > 0:
+            print("True")
+        else:
+            print("False")
+
+
+list1 = MyList([11,22,33,44,55])
+list1.is_in_the_list(30)
+list1.is_in_the_list(33)
+
+
+3.
+
+
+class Node:
+    def __init__(self, e, n=None):
+        self.element = e
+        self.next = n
+
+class MyList:
+
+    def __init__(self, a):
+        self.head = None
+        tail = None
+        for i in a:
+            n = Node(i)
+            if self.head is None:
+                self.head = n
+                tail = n
+            else:
+                tail.next = n
+                tail = n
+
+    def reverse_LinkedList(self):
+        previous = None
+        n = self.head
+        while n is not None:
+            next = n.next
+            n.next = previous
+            previous = n
+            n = next
+        self.head = previous
+
+        n = self.head
+        while n is not None:
+            print(n.element, end=" ")
+            n = n.next
+
+
+list1 = MyList([1,2,5,3,8])
+list1.reverse_LinkedList()
+
+
+4.
+
+
+class Node:
+    def __init__(self, e, n=None):
+        self.element = e
+        self.next = n
+
+class MyList:
+
+    def __init__(self, a):
+        self.head = None
+        tail = None
+        for i in a:
+            n = Node(i)
+            if self.head is None:
+                self.head = n
+                tail = n
+            else:
+                tail.next = n
+                tail = n
+
+    def sorting_LinkedList(self):
+        finish = None
+        while finish != self.head.next:
+            x = self.head
+            while x.next != finish:
+                y = x.next
+                if x.element > y.element:
+                    x.element, y.element = y.element, x.element
+                x = x.next
+            finish = x
+
+        n = self.head
+        while n is not None:
+            print(n.element, end=" ")
+            n = n.next
+
+
+list1 = MyList([1,2,5,3,8])
+list1.sorting_LinkedList()
+
+
+5.
+
+
+class Node:
+    def __init__(self, e, n=None):
+        self.element = e
+        self.next = n
+
+class MyList:
+
+    def __init__(self, a):
+        self.head = None
+        tail = None
+        for i in a:
+            n = Node(i)
+            if self.head is None:
+                self.head = n
+                tail = n
+            else:
+                tail.next = n
+                tail = n
+
+    def sum_of_LinkedList(self):
+
+        n = self.head
+        sum = 0
+        while n is not None:
+            sum = sum + n.element
+            n = n.next
+        print(sum)
+
+
+list1 = MyList([1,2,5,3,8])
+list1.sum_of_LinkedList()
+
+
+6.
+
+
+class Node:
+    def __init__(self, e, n=None):
+        self.element = e
+        self.next = n
+
+class MyList:
+
+    def __init__(self, a):
+        self.head = None
+        tail = None
+        for i in a:
+            n = Node(i)
+            if self.head is None:
+                self.head = n
+                tail = n
+            else:
+                tail.next = n
+                tail = n
+
+    def rotate(self, side, k):
+        if side == "Right" or side == "right":
+            if (not self.head):
+                return self.head
+
+            n = self.head
+            len = 1
+            while (n.next != None):
+                n = n.next
+                len += 1
+
+            if (k > len):
+                k = k % len
+            k = len - k
+
+            if (k == 0 or k == len):
+                return self.head
+
+            x = self.head
+            count = 1
+            while (count < k and x != None):
+                x = x.next
+                count += 1
+
+            if (x == None):
+                return self.head
+
+            k_node = x
+            n.next = self.head
+            self.head = k_node.next
+            k_node.next = None
+            return self.head
+
+        else:
+            if k == 0:
+                return
+
+            n = self.head
+
+            count = 1
+            while (count < k and n is not None):
+                n = n.next
+                count += 1
+
+            if n is None:
+                return
+
+            k_Node = n
+            while (n.next is not None):
+                n = n.next
+
+            n.next = self.head
+            self.head = k_Node.next
+            k_Node.next = None
+
+    def printList(self):
+        n = self.head
+        while n is not None:
+            print(n.element, end=" ")
+            n = n.next
+
+list1 = MyList([1,2,5,3,8])
+list2 = MyList([10,20,50,30,80])
+list1.rotate("Right", 4)
+list2.rotate("Left", 4)
+list1.printList()
+list2.printList()
